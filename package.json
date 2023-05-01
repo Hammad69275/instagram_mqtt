@@ -21,7 +21,7 @@
     "format": "prettier --write \"src/**/*.ts\" --loglevel warn",
     "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "precommit": "npm run typecheck && npm run lint && npm run format",
-     "rimraf": "./node_modules/rimraf/bin.js",
+     "rimraf": "./node_modules/rimraf/bin.js"
   },
   "engines": {
     "node": ">=12.0.0"
