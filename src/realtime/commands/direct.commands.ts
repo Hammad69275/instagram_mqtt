@@ -228,14 +228,17 @@ export class DirectCommands {
         });
     }
 
-    public async sendText({ text, clientContext, threadId }: { text: string } & ItemBaseType) {
+    public async sendText({ text, clientContext, threadId, reply }: { text: string } & ItemBaseType) {
+        let data = {
+            text
+        }
+        if(reply) data = {...data,replied_to_item_id:reply.item_id,
+            replied_to_client_context:reply.client_context,}
         return this.sendItem({
             itemType: 'text',
             threadId,
             clientContext,
-            data: {
-                text,
-            },
+            data
         });
     }
 
