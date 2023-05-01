@@ -6,9 +6,15 @@ import * as Chance from 'chance';
 import { ThriftDescriptors, ThriftPacketDescriptor, thriftWriteFromObject } from '../../thrift';
 import { MqttMessageOutgoing } from 'mqtts';
 
+interface ReplyInfo {
+    item_id?: any;
+    client_context?: any;
+}
+
 interface ItemBaseType {
     threadId: string;
     clientContext?: string;
+    reply?: ReplyInfo;
 }
 
 export interface ForegroundState {
@@ -229,7 +235,7 @@ export class DirectCommands {
     }
 
     public async sendText({ text, clientContext, threadId, reply }: { text: string } & ItemBaseType) {
-        let data = {
+        let data:any = {
             text
         }
         if(reply) data = {...data,replied_to_item_id:reply.item_id,
