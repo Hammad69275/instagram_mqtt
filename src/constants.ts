@@ -31,7 +31,6 @@ export const Topics = {
         id: '146',
         path: '/ig_message_sync',
         parser: new IrisParser(),
-        noParse: true,
     },
     REALTIME_SUB: {
         id: '149',
