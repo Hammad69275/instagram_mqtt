@@ -36,7 +36,7 @@ export class RealtimeClient extends EventEmitter<ToEventFn<RealtimeClientEvents>
     private readonly ig: IgApiClient;
 
     private initOptions: RealtimeClientInitOptions;
-    private safeDisconnect = false;
+    private safeDisconnect = true;
 
     public commands: Commands;
     public direct: DirectCommands;
